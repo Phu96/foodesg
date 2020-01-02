@@ -1,19 +1,28 @@
 {
-  "name": "food",
+  "name": "foodesg",
   "version": "1.0.0",
   "description": "foo-design",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "jest",
-    "build:typescript": "tsc",
-    "build:webpack": "NODE_ENV=PRODUCTION webpack",
+    "build:lib": "tsc",
+    "build:dist": "NODE_ENV=PRODUCTION webpack",
     "format": "prettier --write \"src/**/*.tsx\" \"src/**/*.js\"",
-    "lint": "eslint -c .eslintrc.js src/**/*.tsx"
+    "lint": "eslint -c .eslintrc.js src/**/*.tsx",
+    "prepare": "npm run format && npm run lint && npm run build:lib && npm run build:dist"
   },
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Phu96/foodesg"
+  },
+  "files": [
+    "dist",
+    "lib"
+  ],
   "author": "viscafcb96@gmail.com",
   "license": "ISC",
   "devDependencies": {
@@ -41,13 +50,16 @@
     "babel-loader": "^8.0.6",
     "babel-plugin-inline-import-data-uri": "^1.0.1",
     "case-sensitive-paths-webpack-plugin": "^2.2.0",
+    "css-loader": "^3.4.0",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.9.0",
     "eslint-plugin-prettier": "^3.1.2",
     "jest": "^24.9.0",
+    "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "mini-css-extract-plugin": "^0.9.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
     "prettier": "^1.19.1",
     "rucksack-css": "^1.0.2",
     "source-map-loader": "^0.2.4",
@@ -66,5 +78,8 @@
     "omit.js": "^1.0.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   }
 }

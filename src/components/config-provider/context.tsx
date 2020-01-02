@@ -1,16 +1,15 @@
-import * as React from "react";
+import * as React from 'react';
 
 export interface ConfigConsumerProps {
     getPrefixCls: (suffixCls: string, customizePrefixCls?: string) => string;
-  }
+}
 
 export const ConfigContext = React.createContext<ConfigConsumerProps>({
     getPrefixCls: (suffixCls: string, customizePrefixCls?: string) => {
         if (customizePrefixCls) return customizePrefixCls;
-    
+
         return `foodesg-${suffixCls}`;
-      },
-})
-  
+    },
+});
 
 export const ConfigConsumer = ConfigContext.Consumer;

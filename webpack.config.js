@@ -9,11 +9,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const CaseSensitivePathsPlugin = require('case-sensitive-paths-webpack-plugin');
 
-const postcssConfig = require('./lib/postcssConfig');
+const postcssConfig = require('./library/postcssConfig');
 
 function getWebpackConfig(modules) {
     const pkg = require(getProjectPath('package.json'));
-    const babelConfig = require('./lib/getBabelCommonConfig')(modules || false);
+    const babelConfig = require('./library/getBabelCommonConfig')(modules || false);
     const config = {
         devtool: 'source-map',
 
