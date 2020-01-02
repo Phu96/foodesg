@@ -187,7 +187,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
           </button>
         );
     
-        if (type === 'link') {
+        if (type !== 'link') {
           return buttonNode;
         }
       };
