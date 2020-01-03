@@ -6,6 +6,7 @@ import omit from 'omit.js';
 import { Omit, tupleStr } from '../utils/type';
 import { ConfigConsumer, ConfigConsumerProps } from '../config-provider/context';
 
+const iconfontCssPrefix: string = 'fooicn';
 const ButtonTypes = tupleStr('default', 'primary', 'dashed', 'danger', 'link');
 export type ButtonType = typeof ButtonTypes[number];
 const ButtonShapes = tupleStr('circle', 'round');
@@ -137,7 +138,7 @@ class Button extends React.Component<ButtonProps, ButtonState> {
                 break;
         }
 
-        const Icon = loading ? 'loading' : icon;
+        const Icon = loading ? <i className={classNames(iconfontCssPrefix, 'fa', 'fa-refresh', 'fa-spin')} /> : icon;
 
         const classes = classNames(prefixCls, className, {
             [`${prefixCls}-${type}`]: type,
